@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
   <title>National Cocktail Dashboard</title>
 
   <!-- Leaflet CSS -->
@@ -19,23 +21,18 @@
   <!-- Chart.js JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" integrity="sha256-tS3S5qG0BlhnQROyJXvNjeEM4UpMXs1nKAAh+CjOuq8=" crossorigin="anonymous"></script>
 </head>
-<body>
-  <!-- Map container -->
-  <div id="map" style="width: 800px; height: 600px;"></div>
+    <body>
+    <!-- Map container -->
+    <div id="map" style="width: 800px; height: 600px;"></div>
 
-  <!-- Graph containers -->
-  <canvas id="graph1" width="400" height="400"></canvas>
-  <canvas id="graph2" width="400" height="400"></canvas>
+    <!-- Graph containers -->
+    <canvas id="graph1" width="400" height="400"></canvas>
+    <canvas id="graph2" width="400" height="400"></canvas>
 
-  <script>
-    // Initialize the Leaflet map
-    var map = L.map('map').setView([0, 0], 2);
+    <!-- JavaScript file -->
+    <script type="text/javascript" src="static/js/mapviz.js"></script>
+    <script type="text/javascript" src="static/js/barchartviz.js"></script>
+    <script type="text/javascript" src="static/js/polargraphviz.js"></script>
 
-    // Add a tile layer to the map
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-      maxZoom: 18
-    }).addTo(map);
-
-    // Add a marker to the map
-    // var marker = L.marker([
+    </body>
+</html>
