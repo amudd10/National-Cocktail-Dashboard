@@ -6,6 +6,8 @@ The Javascript-Leaflet library, HTML, Javascript, Webscrape Python, AWS S3, AWS 
 
 The project was divided into steps with different levels of complexity.
 
+# Data Architecture
+
 ## Step 1: Data Sources and Exteraction 
 
 Data set 1: Source: Most Popular Cocktail in Every State (https://www.eatthis.com/favorite-cocktail-every-state/) 
