@@ -7,6 +7,7 @@ The Javascript-Leaflet library, HTML, Javascript, Webscrape Python, AWS S3, AWS 
 The project was divided into steps with different levels of complexity.
 
 # Data Architecture
+![Project 3](https://user-images.githubusercontent.com/111074755/209232254-7a81423a-5382-4bc9-8a1c-b76e90633057.png)
 
 ## Step 1: Data Sources and Exteraction 
 
