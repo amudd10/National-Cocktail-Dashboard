@@ -14,11 +14,11 @@ The project was divided into steps with different levels of complexity.
 Data set 1: Source: Most Popular Cocktail in Every State (https://www.eatthis.com/favorite-cocktail-every-state/) 
 Tools used for exteraction: Beautiful Soup, Web scrape, Python
 
-Data set 2: Source: Shaken Not Stirred API
+Data set 2: Source: Shaken Not Stirred API (https://github.com/juanroldan1989/shaken_not_stirred/blob/master/Gemfile)
 Tools used for exteraction: Python
 
 Data set 3: Source:
-Tools used to exteraction: 
+Tools used to exteraction: Python
 
 ## Step 2: Data Transormation
 
