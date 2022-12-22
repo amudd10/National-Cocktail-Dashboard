@@ -17,7 +17,7 @@ Tools used for exteraction: Beautiful Soup, Web scrape, Python
 Data set 2: Source: Shaken Not Stirred API (https://github.com/juanroldan1989/shaken_not_stirred/blob/master/Gemfile)
 Tools used for exteraction: Python
 
-Data set 3: Source:
+Data set 3: Source: Alcohol Consumption US CSV (Kaggle - https://www.kaggle.com/datasets/linzey/alcohol-consumption-us?resource=download)
 Tools used to exteraction: Python
 
 ## Step 2: Data Transormation
