@@ -44,6 +44,8 @@ In order for the front-end to interact with the back-end to produce interactive 
 
 In order to produce visuals, JavaScript and its library LeafLet were used. Here a map was created to show the popular drinks for each state in the United States. 
 
+<img width="1104" alt="Screenshot 2022-12-22 at 3 11 12 PM" src="https://user-images.githubusercontent.com/37047605/209251272-5740ef2f-e4bf-40df-bd7f-163d915acdf7.png">
+
 ## Roadblocks
 * The cocktail is provided data that was incomplete and included errors. "Gin fizz" and "vodka fizz" were returned as "bucks fizz" from api, for instance. It also didn't take "~'. 
 * Had to split the ingredients into individual columns because api returned ingredients in one column. 
