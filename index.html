@@ -1,51 +1,95 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-  <title>National Cocktail Dashboard</title>
+    <title>National Cocktail Dashboard</title>
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin=""/>
-  
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
 
-  <!-- Chart.js CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg bg-info">
-    <div class="container-fluid">
-      <h1 class="navbar-brand mx-auto">National Cocktail Dashboard</h1>
+    <!-- D3.js library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+    crossorigin="anonymous">
+
+    <!-- include ustates.js -->
+    <script src="ustates.js"></script>
+
+    <!-- Chart.js CSS
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" 
+    integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" 
+    crossorigin="anonymous"/> -->
+
+
+    <!-- Custom CSS -->
+    <style>
+      /* Add a fixed height for the map container */
+      #map {
+        height: 500px;
+      }
+
+      /* Add a fixed height for the info bar div */
+      #info-bar {
+        height: 50px;
+      }
+      @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+      body {
+        font-family: Roboto, sans-serif;
+      }
+
+      #chart {
+        max-width: 650px;
+        margin: 35px auto;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-info">
+      <div class="container-fluid">
+        <h1 class="navbar-brand mx-auto">National Cocktail Dashboard</h1>
+      </div>
+    </nav>  
+
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <!-- Info bar -->
+    <div id="info-bar" class="bg-secondary text-white text-center py-2">
+      <!-- Ingredients for selected drink will be displayed here -->
     </div>
-    <div id="state-info" class="bg-secondary text-white text-center py-2">
-      <!-- State name and favorite drink will be displayed here -->
-    </div>
-  </nav>  
 
-  <!-- Map container -->
-  <div id="map" style="width: 800px; height: 600px;"></div>
+    <!-- Graph containers -->
+    <div class="container mt-5">
+      <!-- Graph containers -->
+      <div class="row">
+        <div class="col-6">
+          <div id="chart">
+          </div>
+        </div>
+        <div class="col-6">
+          <div id="polar-area-chart" width="400" height="400"></canvas>
+        </div>
+      </div>
 
-  <!-- Graph containers -->
-  <div class="row">
-    <div class="col-6">
-      <canvas id="bar-chart" width="400" height="400"></canvas>
-    </div>
-    <div class="col-6">
-      <canvas id="polar-area-chart" width="400" height="400"></canvas>
-    </div>
-  </div>
+  </body>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
 
-  <!-- Chart.js JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" integrity="sha256-tS3S5qG0BlhnQROyJXvNjeEM4UpMXs1nKAAh+CjOuq8=" crossorigin="anonymous"></script>
+  <!-- Apex.js JS --> 
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 
   <!-- Dashboard JS -->
   <script src="static/js/mapviz.js"></script>
