@@ -33,6 +33,8 @@ The data was loaded into a few of the Amazon S3 buckets. The reason S3 was picke
 
 ## Step 4: Front and Back-End Connectivity 
 
+<img width="1237" alt="Screenshot 2022-12-22 at 3 10 16 PM" src="https://user-images.githubusercontent.com/37047605/209251199-105f4e8e-398e-4c2c-a6cc-6d222a06afcc.png">
+
 In order for the front-end to interact with the back-end to produce interactive visualizations:
 - AWS Lambda and AWS API Gateway were used. The logic here is using lambda to connect to our database (S3) 
 - then create an event driven lambda function to feed customized data through the API Gateway 
