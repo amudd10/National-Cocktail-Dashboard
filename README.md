@@ -42,9 +42,9 @@ In order for the front-end to interact with the back-end to produce interactive 
 
 In order to produce visuals, JavaScript and its library LeafLet were used. Here a map was created to show the popular drinks for each state in the United States. 
 
-
 ## Roadblocks
-* one cocktail is "null"
-* "gin fizz" and "vodka fizz" were returned as "bucks fizz" from api
-* Had to split the ingredients into individual columns because api returned ingredients in one column
-* Api return data with special characters really strange for ingredients - had to use lambda to clean
+* The cocktail is provided data that was incomplete and included errors. "Gin fizz" and "vodka fizz" were returned as "bucks fizz" from api, for instance. It also didn't take "~'. 
+* Had to split the ingredients into individual columns because api returned ingredients in one column. 
+* Api return data with special characters really strange for ingredients. 
+* Struggles with drilling into the data in the lambda function and testing without interfering with front-end work.
+* Data jsonified in dictionary within dictionary format. Challenging to use on the front-end.
