@@ -21,11 +21,6 @@
     <!-- include ustates.js -->
     <script src="ustates.js"></script>
 
-    <!-- Chart.js CSS
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" 
-    integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" 
-    crossorigin="anonymous"/> -->
-
 
     <!-- Custom CSS -->
     <style>
@@ -56,6 +51,7 @@
     <nav class="navbar navbar-expand-lg bg-info">
       <div class="container-fluid">
         <h1 class="navbar-brand mx-auto">National Cocktail Dashboard</h1>
+        <p>(Click on a state!)</p>
       </div>
     </nav>  
 
@@ -63,7 +59,12 @@
     <div id="map"></div>
 
     <!-- Info bar -->
-    <div id="info-bar" class="bg-secondary text-white text-center py-2">
+    <div id="ingredients-bar" class="bg-secondary text-white text-center">
+      <h4>J & C:</h4>
+      <ul id="popular-drink-ing">
+        <li>Jack</li>
+        <li>coke</li>
+      </ul>
       <!-- Ingredients for selected drink will be displayed here -->
     </div>
 
@@ -72,11 +73,11 @@
       <!-- Graph containers -->
       <div class="row">
         <div class="col-6">
-          <div id="chart">
+          <div id="polar-area-chart">
           </div>
         </div>
         <div class="col-6">
-          <div id="polar-area-chart" width="400" height="400"></canvas>
+          <div id="chart" width="400" height="400"></canvas>
         </div>
       </div>
 

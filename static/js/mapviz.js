@@ -54,33 +54,68 @@
 //  function resetHighlight(e) {
 //    geojson.resetStyle(e.target);
 //  }
- 
- function onEachFeature(feature, layer) {
-   layer.on('click', function (e) {
-     // Get the name of the state from the feature properties and convert it to uppercase
-     let stateSelected = e.target.feature.properties.name.toUpperCase();
- 
-     // Use the d3.json function to get the favorite drink data
-     d3.json(url).then(function(data) {
-       // Get the cocktails data, which is the first element in the list
-       let cocktailsData = data[0].Cocktails;
- 
-       // Get the favorite drink for the selected state from the cocktails data
-       let favoriteDrink = cocktailsData[stateSelected];
- 
-       // If the favorite drink is not found, use a default value
-       if (favoriteDrink == undefined) {
-         favoriteDrink = "unknown";
-       }
- 
-       // Bind the popup to the state layer
-       layer.bindPopup(stateSelected + "'s favorite drink is " + favoriteDrink)
-       .openPopup();
-       console.log(stateSelected);
-       console.log(data);
+
+
+function onEachFeature(feature, layer) {
+  layer.on('click', function (e) {
+    // Get the name of the state from the feature properties and convert it to uppercase
+    let stateSelected = e.target.feature.properties.name.toUpperCase();
+
+    // Use the d3.json function to get the favorite drink data
+    d3.json(url).then(function(data) {
+      // Get the cocktails data, which is the first element in the list
+      let cocktailsData = data[0].Cocktails;
+      let cocktailsData_ = data[1];
+
+      // Get the favorite drink for the selected state from the cocktails data
+      let favoriteDrink = cocktailsData[stateSelected];
+
+      // If the favorite drink is not found, use a default value
+      if (favoriteDrink == undefined) {
+        favoriteDrink = "unknown";
+      }
+
+      // Bind the popup to the state layer
+      layer.bindPopup(stateSelected + "'s favorite drink is " + favoriteDrink)
+      .openPopup();
+
+      // Nested function to get the ingredients for the favorite drink
+      function getIngredients(cocktailsData_, favoriteDrink) {
+        if (!cocktailsData_) {
+          return [];
+        }
+        let ingredients = [];
+        for (const [key, value] of Object.entries(cocktailsData_)) {
+          for (const [innerKey, innerValue] of Object.entries(value)) {
+            if (innerKey.startsWith(favoriteDrink)) {
+              ingredients.push(innerValue);
+            }
+          }
+        }
+        return ingredients;
+      }
+      
+
+      // Get the ingredients for the favorite drink
+      let faveIng = getIngredients(cocktailsData_, favoriteDrink);
+      console.log(favoriteDrink);
+      // Update the ingredients bar
+      let ingBar = d3.select("#ingredients-bar");
+      ingBar.html("");
+      let ingState = ingBar.append("h4");
+      ingState.text(`To make a ${favoriteDrink} you need`);
+      let ingList = ingState.append("ul");
+      faveIng.forEach(ingredient => {
+        let dritem = ingList.append("li");
+        dritem.text(ingredient);
+      })
      });
    });
  }
+
+
+
+
  
  
  
