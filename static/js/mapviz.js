@@ -79,21 +79,26 @@ function onEachFeature(feature, layer) {
       layer.bindPopup(stateSelected + "'s favorite drink is " + favoriteDrink)
       .openPopup();
 
-      // Nested function to get the ingredients for the favorite drink
-      function getIngredients(cocktailsData_, favoriteDrink) {
-        if (!cocktailsData_) {
-          return [];
+        // Nested function to get the ingredients for the favorite drink
+  function getIngredients(cocktailsData_, favoriteDrink) {
+    if (!cocktailsData_) {
+      return [];
+    }
+    let ingredients = [];
+    for (const [key, value] of Object.entries(cocktailsData_)) {
+      for (const [innerKey, innerValue] of Object.entries(value)) {
+        if (innerKey.startsWith(favoriteDrink)) {
+          ingredients.push(innerValue);
         }
-        let ingredients = [];
-        for (const [key, value] of Object.entries(cocktailsData_)) {
-          for (const [innerKey, innerValue] of Object.entries(value)) {
-            if (innerKey.startsWith(favoriteDrink)) {
-              ingredients.push(innerValue);
-            }
-          }
-        }
-        return ingredients;
       }
+    }
+    // If there are no ingredients, add "some stuff" to the list
+    if (ingredients.length === 0) {
+      ingredients.push("ingredients that were not found in our dataset");
+    }
+    return ingredients;
+  }
+
       
 
       // Get the ingredients for the favorite drink
